@@ -1,7 +1,7 @@
 "use strict"
 require("dotenv/config")
 
-const { ADMIN_USER, ADMIN_PASSWORD } = process.env
+const { ADMIN_USER = "admin", ADMIN_PASSWORD = "admin" } = process.env
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
