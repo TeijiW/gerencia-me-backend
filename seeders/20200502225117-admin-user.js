@@ -10,7 +10,7 @@ module.exports = {
       [
         {
           email: ADMIN_EMAIL,
-          name: admin,
+          name: "admin",
           password: ADMIN_PASSWORD,
           created_at: new Date(),
           updated_at: new Date(),
