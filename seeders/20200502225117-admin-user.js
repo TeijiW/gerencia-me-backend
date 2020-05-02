@@ -1,7 +1,7 @@
 "use strict"
 require("dotenv/config")
 
-const { ADMIN_USER = "admin", ADMIN_PASSWORD = "admin" } = process.env
+const { ADMIN_EMAIL = "admin@test.com", ADMIN_PASSWORD = "admin" } = process.env
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -9,8 +9,8 @@ module.exports = {
       "user",
       [
         {
-          email: "admin@test.com",
-          name: ADMIN_USER,
+          email: ADMIN_EMAIL,
+          name: admin,
           password: ADMIN_PASSWORD,
           created_at: new Date(),
           updated_at: new Date(),

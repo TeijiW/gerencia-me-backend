@@ -34,7 +34,7 @@ To run this API it's **necessary** set some Environment variables in `.env` file
 
 **Warning**: A admin user is created with these credentials to manage another users
 
-- ADMIN_USER - Admin name to login ("admin" by default)
+- ADMIN_EMAIL - Admin email to login (""admin@test.com" by default)
 - ADMIN_PASSWORD - Admin password ("admin" by default)
 
 ## Routes
