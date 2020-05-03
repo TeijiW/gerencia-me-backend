@@ -158,12 +158,12 @@ const addToStore = async (req, res) => {
   const store = await Store.findByPk(storeId)
   if (!store) return res.status(404).json({ error: "Store not found" })
 
-  if (userIdParam !== userId)
+  if (!id && userIdParam !== userId)
     return res.status(400).json({
       error: "request user and user at request body do not match",
     })
 
-  if (store.dataValues.userId !== userId) {
+  if (store.dataValues.userId !== userIdParam) {
     return res.status(403).json({ error: "Permission denied" })
   }
 
