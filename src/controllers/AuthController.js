@@ -16,9 +16,13 @@ const auth = async (req, res) => {
     const equals = await bcrypt.compare(password, databasePassword)
     if (!equals) return res.status(403).end()
     delete user.password
-    const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
-      expiresIn: 86400,
-    })
+    const token = jwt.sign(
+      { id: user.id, email: user.email },
+      process.env.SECRET_KEY,
+      {
+        expiresIn: 86400,
+      }
+    )
     res.json({ user, token })
   } catch (error) {
     console.log(error)

@@ -57,34 +57,34 @@ To run this API it's **necessary** set some Environment variables in `.env` file
 
 ### STORES
 
-- "/users/{userId}/stores"
+- "/stores"
   - GET - Get stores by user
   - POST - Create a store to the refered user
-- "/users/{userId}/stores/{storeId}"
+- "/stores/{storeId}"
   - PUT - Update the store of the refered user
   - DELETE - Remove the store of the refered user
 
 ### CATEGORIES
 
-- "/users/{userId}/categories"
+- "/categories"
   - GET - Get categories by user
   - POST - Create a category to the refered user
-- "/users/{userId}/categories/{categoryId}"
+- "/categories/{categoryId}"
   - PUT - Update the category of the refered user
   - DELETE - Remove the category of the refered user
-- "/users/{userId}/stores/{storeId}/categories
+- "/stores/{storeId}/categories
   - GET - Get categories by store
   - POST - Add a category to store
 
 ### PRODUCTS
 
-- "/users/{userId}/products"
+- "/products"
   - GET - Get products by user
   - POST - Create a product to the refered user
-- "/users/{userId}/products/{productId}"
+- "/products/{productId}"
   - PUT - Update the product of the refered user
   - DELETE - Remove the product of the refered user
-- "/users/{userId}/stores/{storeId}/products
+- "/stores/{storeId}/products
   - GET - Get products by store
   - POST - Add a product to store
 
@@ -139,7 +139,7 @@ userId: INTEGER
 id: INTEGER
 name: STRING(80),
 desc: STRING(140),
-imageUrl: STRING(140),
+imageUrl: STRING(140), // Can be null
 price: DECIMAL(10, 2),
 categoryId: INTEGER, // Can be null
 userId: INTEGER

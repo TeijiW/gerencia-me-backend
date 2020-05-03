@@ -4,27 +4,25 @@ const Category = require("../models/Category")
 const Store = require("../models/Store")
 
 const indexByUser = async (req, res) => {
-  const userId = Number(req.params.userId)
+  const userId = Number(req.userId)
 
   try {
-    const user = await User.findByPk(userId, {
-      include: { association: "categories" },
-    })
+    const user = await User.findByPk(userId)
     if (!user) return res.status(404).json({ error: "User not found" })
-
-    return res.json(user)
+    categories = await Category.findAll({ where: { userId } })
+    return res.json(categories)
   } catch (error) {
     return res.status(500).end()
   }
 }
 
 const create = async (req, res) => {
-  const userIdParam = Number(req.params.userId)
+  const userIdParam = Number(req.userId)
   const { name, userId } = req.body
 
   if (Number(userId) !== userIdParam)
     return res.status(400).json({
-      error: "userID in the parameters and in the body do not match",
+      error: "request user and user at request body do not match",
     })
 
   const user = await User.findByPk(userId)
@@ -46,7 +44,7 @@ const create = async (req, res) => {
 }
 
 const update = async (req, res) => {
-  const userIdParam = Number(req.params.userId)
+  const userIdParam = Number(req.userId)
   const categoryIdParam = Number(req.params.categoryId)
   const { name } = req.body
   const id = Number(req.body.id)
@@ -77,7 +75,7 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
   const categoryId = Number(req.params.categoryId)
-  const userId = Number(req.params.userId)
+  const userId = Number(req.userId)
   try {
     await Category.destroy({
       where: {
@@ -95,7 +93,7 @@ const addToStore = async (req, res) => {
   const { name } = req.body
   const id = req.body.id ? Number(req.body.id) : null
   const userId = Number(req.body.userId)
-  const userIdParam = Number(req.params.userId)
+  const userIdParam = Number(req.userId)
   const storeId = Number(req.params.storeId)
 
   const store = await Store.findByPk(storeId)
@@ -103,7 +101,7 @@ const addToStore = async (req, res) => {
 
   if (userIdParam !== userId)
     return res.status(400).json({
-      error: "userID in the parameters and in the body do not match",
+      error: "request user and user at request body do not match",
     })
 
   if (store.dataValues.userId !== userId) {
@@ -132,7 +130,7 @@ const addToStore = async (req, res) => {
 
 const indexByStore = async (req, res) => {
   const storeId = Number(req.params.storeId)
-  const userId = Number(req.params.userId)
+  const userId = Number(req.userId)
   try {
     const store = await Store.findByPk(storeId)
     if (!store) return res.status(404).json({ error: "Store not found" })

@@ -3,27 +3,25 @@ const Store = require("../models/Store")
 const User = require("../models/User")
 
 const indexByUser = async (req, res) => {
-  const userId = Number(req.params.userId)
+  const userId = Number(req.userId)
 
   try {
-    const user = await User.findByPk(userId, {
-      include: { association: "stores" },
-    })
+    const user = await User.findByPk(userId)
     if (!user) return res.status(404).json({ error: "User not found" })
-
-    return res.json(user)
+    stores = await Store.findAll({ where: { userId } })
+    return res.json(stores)
   } catch (error) {
     return res.status(500).end()
   }
 }
 
 const create = async (req, res) => {
-  const userIdParam = Number(req.params.userId)
+  const userIdParam = Number(req.userId)
   const { name, address, desc, docNumber, storeType, userId } = req.body
 
   if (Number(userId) !== userIdParam)
     return res.status(400).json({
-      error: "userID in the parameters and in the body do not match",
+      error: "request user and user at request body do not match",
     })
 
   const user = await User.findByPk(userId)
@@ -49,7 +47,7 @@ const create = async (req, res) => {
 }
 
 const update = async (req, res) => {
-  const userIdParam = Number(req.params.userId)
+  const userIdParam = Number(req.userId)
   const storeIdParam = Number(req.params.storeId)
   const { name, address, desc, docNumber, storeType } = req.body
   const id = Number(req.body.id)
@@ -84,7 +82,7 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
   const storeId = Number(req.params.storeId)
-  const userId = Number(req.params.userId)
+  const userId = Number(req.userId)
   try {
     await Store.destroy({
       where: {

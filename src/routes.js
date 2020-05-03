@@ -4,6 +4,7 @@ const CategoryController = require("./controllers/CategoryController")
 const ProductController = require("./controllers/ProductController")
 const AuthController = require("./controllers/AuthController")
 const authMiddleware = require("./middlewares/auth")
+const adminMiddleware = require("./middlewares/admin")
 
 module.exports = (app) => {
   // Auth
@@ -11,7 +12,11 @@ module.exports = (app) => {
   app.use(authMiddleware)
 
   // Users
-  app.route("/users").get(UserController.index).post(UserController.create)
+  app
+    .route("/users")
+    .all(adminMiddleware)
+    .get(UserController.index)
+    .post(UserController.create)
 
   app
     .route("/users/:userId")
@@ -21,44 +26,44 @@ module.exports = (app) => {
 
   // Stores
   app
-    .route("/users/:userId/stores")
+    .route("/stores")
     .get(StoreController.indexByUser)
     .post(StoreController.create)
 
   app
-    .route("/users/:userId/stores/:storeId")
+    .route("/stores/:storeId")
     .put(StoreController.update)
     .delete(StoreController.remove)
 
   // Categories
   app
-    .route("/users/:userId/categories")
+    .route("/categories")
     .get(CategoryController.indexByUser)
     .post(CategoryController.create)
 
   app
-    .route("/users/:userId/categories/:categoryId")
+    .route("/categories/:categoryId")
     .put(CategoryController.update)
     .delete(CategoryController.remove)
 
   app
-    .route("/users/:userId/stores/:storeId/categories")
+    .route("/stores/:storeId/categories")
     .get(CategoryController.indexByStore)
     .post(CategoryController.addToStore)
 
   // Products
   app
-    .route("/users/:userId/products")
+    .route("/products")
     .get(ProductController.indexByUser)
     .post(ProductController.create)
 
   app
-    .route("/users/:userId/products/:productId")
+    .route("/products/:productId")
     .put(ProductController.update)
     .delete(ProductController.remove)
 
   app
-    .route("/users/:userId/stores/:storeId/products")
+    .route("/stores/:storeId/products")
     .get(ProductController.indexByStore)
     .post(ProductController.addToStore)
 }

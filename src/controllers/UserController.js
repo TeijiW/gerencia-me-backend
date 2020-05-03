@@ -45,7 +45,7 @@ const update = async (req, res) => {
 
   if (userId !== id)
     return res.status(400).json({
-      error: "userID in the parameters and in the body do not match",
+      error: "request user and user at request body do not match",
     })
 
   const user = await User.findByPk(userId)
