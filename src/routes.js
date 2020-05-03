@@ -2,8 +2,14 @@ const UserController = require("./controllers/UserController")
 const StoreController = require("./controllers/StoreController")
 const CategoryController = require("./controllers/CategoryController")
 const ProductController = require("./controllers/ProductController")
+const AuthController = require("./controllers/AuthController")
+const authMiddleware = require("./middlewares/auth")
 
 module.exports = (app) => {
+  // Auth
+  app.route("/auth").post(AuthController.auth)
+  app.use(authMiddleware)
+
   // Users
   app.route("/users").get(UserController.index).post(UserController.create)
 

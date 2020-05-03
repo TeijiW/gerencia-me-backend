@@ -1,4 +1,5 @@
 "use strict"
+const bcrypt = require("bcrypt")
 require("dotenv/config")
 
 const { ADMIN_EMAIL = "admin@test.com", ADMIN_PASSWORD = "admin" } = process.env
@@ -11,7 +12,7 @@ module.exports = {
         {
           email: ADMIN_EMAIL,
           name: "admin",
-          password: ADMIN_PASSWORD,
+          password: bcrypt.hashSync(ADMIN_PASSWORD, 10),
           created_at: new Date(),
           updated_at: new Date(),
         },
