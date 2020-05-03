@@ -1,8 +1,8 @@
 # Gerencia-me Backend
 
-Web API created to gerencia-me project, made for **Mega Hack Hackathon**  
+Web API created to gerencia-me project, made for **Mega Hack Hackathon**
 
-**Technologies:** Node.JS, Express, Sequelize BCrypt and JWT   
+**Technologies:** Node.JS, Express, Sequelize, SQLite, BCrypt and JWT
 
 ## Steps to Run
 
@@ -24,10 +24,7 @@ To run this API it's **necessary** set some Environment variables in `.env` file
 
 ### DATABASE
 
-- DB_DIALECT - Dialect used to set DBMS that will be used (mysql by default)
-- DB_HOST - Database Host name (localhost by default)
-- DB_USER - Database user ("root" by default)
-- DB_PASSWORD - Database password ("default" by default)
+- DB_DIALECT - Dialect used to set DBMS that will be used (sqlite by default)
 - DB_NAME - Database name ("gerencia_me" bt default)  
   **Database port** is determined in accordance with database dialect
 
