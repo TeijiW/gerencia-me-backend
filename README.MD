@@ -44,6 +44,12 @@ To run this API it's **necessary** set some Environment variables in `.env` file
 
 ## ROUTES
 
+### AUTHENTICATION
+
+-"/auth"
+
+- POST - Login with email and password (return: a JWT Token)
+
 **Warning**: "Users" routes it's allowed for admin only
 
 ### USERS
