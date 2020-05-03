@@ -9,7 +9,6 @@ const auth = async (req, res) => {
   if (!user) return res.status(404).json({ error: "User not found" })
   const databasePassword = user.password
   try {
-    console.log(password, databasePassword)
     if (!password || !databasePassword) {
       return res.status(400).json({ error: "Password cannot be null" })
     }
