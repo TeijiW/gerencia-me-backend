@@ -12,6 +12,7 @@
 - `yarn install`
 - `yarn sequelize db:migrate`
 - `yarn sequelize db:seed:all`
+- `yarn dev`
 
 ## Environment Variables
 
@@ -93,6 +94,7 @@ To run this API it's **necessary** set some Environment variables in `.env` file
 ### OBSERVATIONS
 
 - If the request body to "Add/create category or product" has a id, the system will try insert the category or product with that id
+- Requests must have bearer auth with the JWT token
 
 ### USERS
 
@@ -107,22 +109,20 @@ docNumber: STRING(20), // Can be null
 ### STORES
 
 ```javascript
-{
-  id: INTEGER,
-  name: STRING(80),
-  address: STRING(80), // Can be null
-  desc: STRING(140),
-  docNumber: STRING(20), // Can be null
-  storeType: ENUM(
-    "food",
-    "supermakert",
-    "clothing",
-    "drugstore",
-    "building materials",
-    "other"
-  ),
-  userId: INTEGER
-}
+id: INTEGER,
+name: STRING(80),
+address: STRING(80), // Can be null
+desc: STRING(140),
+docNumber: STRING(20), // Can be null
+storeType: ENUM(
+  "food",
+  "supermakert",
+  "clothing",
+  "drugstore",
+  "building materials",
+  "other"
+),
+userId: INTEGER
 ```
 
 ### CATEGORIES
