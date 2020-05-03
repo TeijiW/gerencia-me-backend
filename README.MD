@@ -1,8 +1,8 @@
 # Gerencia-me Backend
 
-## Web API created to gerencia-me project, made for Mega Hack Hackathon
+Web API created to gerencia-me project, made for **Mega Hack Hackathon**  
 
-### Technologies used: Node.JS, Express, Sequelize BCrypt and JWT
+**Technologies:** Node.JS, Express, Sequelize BCrypt and JWT   
 
 ## Steps to Run
 
