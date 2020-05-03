@@ -32,6 +32,7 @@ module.exports = (app) => {
 
   app
     .route("/stores/:storeId")
+    .get(StoreController.indexById)
     .put(StoreController.update)
     .delete(StoreController.remove)
 
@@ -43,6 +44,7 @@ module.exports = (app) => {
 
   app
     .route("/categories/:categoryId")
+    .get(CategoryController.indexById)
     .put(CategoryController.update)
     .delete(CategoryController.remove)
 
@@ -59,6 +61,7 @@ module.exports = (app) => {
 
   app
     .route("/products/:productId")
+    .get(ProductController.indexById)
     .put(ProductController.update)
     .delete(ProductController.remove)
 

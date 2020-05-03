@@ -15,6 +15,21 @@ const indexByUser = async (req, res) => {
   }
 }
 
+const indexById = async (req, res) => {
+  const userId = Number(req.userId)
+  const storeId = Number(req.params.storeId)
+  try {
+    const store = await Store.findOne({
+      where: { id: storeId, userId },
+      raw: true,
+    })
+    if (!store) return res.status(404).json({ error: "Store not found" })
+    return res.json(store)
+  } catch (error) {
+    return res.status(500).end()
+  }
+}
+
 const create = async (req, res) => {
   const userIdParam = Number(req.userId)
   const { name, address, desc, docNumber, storeType, userId } = req.body
@@ -101,4 +116,5 @@ module.exports = {
   indexByUser,
   update,
   remove,
+  indexById,
 }

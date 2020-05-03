@@ -16,6 +16,21 @@ const indexByUser = async (req, res) => {
   }
 }
 
+const indexById = async (req, res) => {
+  const userId = Number(req.userId)
+  const categoryId = Number(req.params.categoryId)
+  try {
+    const category = await Category.findOne({
+      where: { id: categoryId, userId },
+      raw: true,
+    })
+    if (!category) return res.status(404).json({ error: "Category not found" })
+    return res.json(category)
+  } catch (error) {
+    return res.status(500).end()
+  }
+}
+
 const create = async (req, res) => {
   const userIdParam = Number(req.userId)
   const { name, userId } = req.body
@@ -152,4 +167,5 @@ module.exports = {
   remove,
   addToStore,
   indexByStore,
+  indexById,
 }

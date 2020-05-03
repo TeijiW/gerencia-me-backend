@@ -46,9 +46,8 @@ To run this API it's **necessary** set some Environment variables in `.env` file
 
 ### AUTHENTICATION
 
--"/auth"
-
-- POST - Login with email and password (return: a JWT Token)
+- "/auth"
+  - POST - Login with email and password (return: a JWT Token)
 
 **Warning**: "Users" routes it's allowed for admin only
 
@@ -68,6 +67,7 @@ To run this API it's **necessary** set some Environment variables in `.env` file
   - GET - Get stores by user
   - POST - Create a store to the refered user
 - "/stores/{storeId}"
+  - GET - Get store by id
   - PUT - Update the store of the refered user
   - DELETE - Remove the store of the refered user
 
@@ -77,6 +77,7 @@ To run this API it's **necessary** set some Environment variables in `.env` file
   - GET - Get categories by user
   - POST - Create a category to the refered user
 - "/categories/{categoryId}"
+  - GET - Get category by id
   - PUT - Update the category of the refered user
   - DELETE - Remove the category of the refered user
 - "/stores/{storeId}/categories
@@ -89,6 +90,7 @@ To run this API it's **necessary** set some Environment variables in `.env` file
   - GET - Get products by user
   - POST - Create a product to the refered user
 - "/products/{productId}"
+  - GET - Get product by id
   - PUT - Update the product of the refered user
   - DELETE - Remove the product of the refered user
 - "/stores/{storeId}/products

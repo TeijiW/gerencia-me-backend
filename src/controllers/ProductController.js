@@ -18,6 +18,21 @@ const indexByUser = async (req, res) => {
   }
 }
 
+const indexById = async (req, res) => {
+  const userId = Number(req.userId)
+  const productId = Number(req.params.productId)
+  try {
+    const product = await Product.findOne({
+      where: { id: productId, userId },
+      raw: true,
+    })
+    if (!product) return res.status(404).json({ error: "Product not found" })
+    return res.json(product)
+  } catch (error) {
+    return res.status(500).end()
+  }
+}
+
 const create = async (req, res) => {
   const userIdParam = Number(req.userId)
   const { name, desc, imageUrl, price, userId, categoryId } = req.body
@@ -210,4 +225,5 @@ module.exports = {
   remove,
   addToStore,
   indexByStore,
+  indexById,
 }
