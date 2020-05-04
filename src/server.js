@@ -12,4 +12,7 @@ routes(app)
 app.disable("etag")
 app.use(express.json())
 
-app.listen(process.env.APP_PORT)
+const port = process.env.PORT || 8080
+app.listen(port, () => {
+  console.log("Express server listening on port", port)
+})
