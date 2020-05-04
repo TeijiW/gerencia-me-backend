@@ -1,7 +1,7 @@
 require("dotenv/config")
 
 const {
-  DB_DIALECT = "sqlite",
+  DB_DIALECT = "postgres",
   DB_HOST = "localhost",
   DB_USER = "root",
   DB_PASSWORD = "default",
@@ -9,8 +9,10 @@ const {
 } = process.env
 
 module.exports = {
-  dialect: "sqlite",
-  storage: "./database.sqlite",
+  dialect: DB_DIALECT,
+  host: DB_HOST,
+  username: DB_USER,
+  password: DB_PASSWORD,
   database: DB_NAME,
   define: {
     timestamp: true,
