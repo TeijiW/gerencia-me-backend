@@ -14,7 +14,6 @@ module.exports = {
   username: DB_USER,
   password: DB_PASSWORD,
   database: DB_NAME,
-  protocol: DB_DIALECT,
   use_env_variable: "DATABASE_URL",
   define: {
     timestamp: true,
