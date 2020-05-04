@@ -14,7 +14,7 @@ module.exports = {
   username: DB_USER,
   password: DB_PASSWORD,
   database: DB_NAME,
-  use_env_variable: "DATABASE_URL",
+  // use_env_variable: "DATABASE_URL",
   define: {
     timestamp: true,
     underscored: true,
