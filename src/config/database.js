@@ -9,8 +9,6 @@ const {
   DATABASE_URL,
 } = process.env
 
-console.log(DATABASE_URL)
-
 module.exports = {
   dialect: DB_DIALECT,
   host: DB_HOST,
