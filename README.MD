@@ -10,9 +10,9 @@ Web API created to gerencia-me project, made for **Mega Hack Hackathon**
 - `cd gerencia-me-backend`
 - Create and configure the .env file (instructions below)
 - `yarn install`
-- `yarn sequelize db:migrate`
-- `yarn sequelize db:seed:all`
-- `yarn dev`
+- `yarn migrate`
+- `yarn populate`
+- `yarn start`
 
 ## Environment Variables
 
