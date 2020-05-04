@@ -14,10 +14,11 @@ console.log(DATABASE_URL)
 module.exports = {
   dialect: DB_DIALECT,
   host: DB_HOST,
-  user: DB_USER,
+  username: DB_USER,
   password: DB_PASSWORD,
-  name: DB_NAME,
+  database: DB_NAME,
   protocol: DB_DIALECT,
+  use_env_variable: "DATABASE_URL",
   define: {
     timestamp: true,
     underscored: true,
