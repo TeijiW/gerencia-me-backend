@@ -10,7 +10,7 @@ const {
 
 module.exports = {
   dialect: DB_DIALECT,
-  url: DB_HOST,
+  url: DATABASE_URL,
   define: {
     timestamp: true,
     underscored: true,
