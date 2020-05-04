@@ -6,6 +6,7 @@ const {
   DB_USER = "root",
   DB_PASSWORD = "default",
   DB_NAME = "gerencia_me",
+  DATABASE_URL,
 } = process.env
 
 module.exports = {
