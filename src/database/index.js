@@ -7,12 +7,6 @@ const Product = require("../models/Product")
 
 const connection = new Sequelize(config)
 
-try {
-  connection.authenticate()
-  console.log("Connection has been established successfully.")
-} catch (error) {
-  console.error("Unable to connect to the database:", error)
-}
 User.init(connection)
 Store.init(connection)
 Category.init(connection)
