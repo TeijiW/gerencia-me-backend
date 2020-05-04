@@ -4,6 +4,7 @@ const middlewares = require("./config/middlewares")
 require("./database")
 require("dotenv/config")
 
+console.log("start")
 const app = express()
 middlewares(app)
 routes(app)
