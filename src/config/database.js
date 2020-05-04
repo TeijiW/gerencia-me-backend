@@ -11,14 +11,6 @@ const {
 module.exports = {
   dialect: DB_DIALECT,
   url: DB_HOST,
-  // host: DB_HOST,
-  // username: DB_USER,
-  // password: DB_PASSWORD,
-  // database: DB_NAME,
-  // protocol: DB_DIALECT,
-  // dialectOptions: {
-  //   ssl: true,
-  // },
   define: {
     timestamp: true,
     underscored: true,
