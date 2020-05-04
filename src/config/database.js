@@ -13,6 +13,7 @@ console.log(DATABASE_URL)
 
 module.exports = {
   dialect: DB_DIALECT,
+  host: DATABASE_URL,
   url: DATABASE_URL,
   define: {
     timestamp: true,
