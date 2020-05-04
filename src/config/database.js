@@ -10,10 +10,11 @@ const {
 
 module.exports = {
   dialect: DB_DIALECT,
-  host: DB_HOST,
-  username: DB_USER,
-  password: DB_PASSWORD,
-  database: DB_NAME,
+  url: DB_HOST,
+  // host: DB_HOST,
+  // username: DB_USER,
+  // password: DB_PASSWORD,
+  // database: DB_NAME,
   protocol: DB_DIALECT,
   dialectOptions: {
     ssl: true,
