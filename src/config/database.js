@@ -15,6 +15,7 @@ module.exports = {
   dialect: DB_DIALECT,
   host: DATABASE_URL,
   url: DATABASE_URL,
+  protocol: DB_DIALECT,
   define: {
     timestamp: true,
     underscored: true,
