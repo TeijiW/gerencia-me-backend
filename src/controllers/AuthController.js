@@ -22,7 +22,7 @@ const auth = async (req, res) => {
         expiresIn: 86400,
       }
     )
-    res.json({ user, token, expires: Date.now() + 86400 })
+    res.json({ user, token, expires: Date.now() + 86400 * 1000 })
   } catch (error) {
     console.log(error)
     return res.status(500).end()

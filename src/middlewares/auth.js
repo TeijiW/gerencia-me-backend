@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   const rawToken = req.headers["x-access-token"] || req.headers.authorization
   if (!rawToken) return res.status(401).json({ error: "No token provided" })
   const parts = rawToken.split(" ")
-  if (!parts.lengt === 2) return res.status(401).json({ error: "Token Error" })
+  if (!parts.length === 2) return res.status(401).json({ error: "Token Error" })
 
   const [scheme, token] = parts
 
@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
 
   jwt.verify(token, process.env.SECRET_KEY, (error, decoded) => {
     if (error) return res.status(401).json({ error: "Invalid Token" })
-
+    console.log(decoded)
     req.userId = decoded.id
     req.userEmail = decoded.email
     return next()
